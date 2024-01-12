@@ -1,0 +1,178 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "ExampleSMS Firması Api",
+        "version": "0.1"
+    },
+    "paths": {
+        "/api/registerUser": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "Register New user",
+                "operationId": "bd00cc7f59b8da7d707f2c8499135542",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "User name",
+                        "required": true,
+                        "example": "khaled"
+                    },
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "description": "User email",
+                        "required": true,
+                        "example": "khaled.hatahet@gmail.com"
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "description": "User Password",
+                        "required": true,
+                        "example": "Ales12234"
+                    },
+                    {
+                        "name": "rePassword",
+                        "in": "query",
+                        "description": "re Password",
+                        "required": true,
+                        "example": "Ales12234"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "data added successfully"
+                    }
+                }
+            }
+        },
+        "/api/loginUser": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "Login User",
+                "operationId": "48d1c12dee599373a0291dfadf1e6d3c",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "description": "User email",
+                        "required": true,
+                        "example": "khaled.hatahet@gmail.com"
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "description": "User Password",
+                        "required": true,
+                        "example": "Ales12234"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "data added successfully"
+                    }
+                }
+            }
+        },
+        "/api/messages": {
+            "get": {
+                "tags": [
+                    "Messages"
+                ],
+                "summary": "Get a list of Messages",
+                "operationId": "9d5effa2cb648df85be0ea9741ffb457",
+                "responses": {
+                    "200": {
+                        "description": "The data"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Messages"
+                ],
+                "summary": "Add new Message",
+                "operationId": "db79bb7bcadfdb708e9f6c38ac928f4a",
+                "parameters": [
+                    {
+                        "name": "number",
+                        "in": "query",
+                        "description": "User Phone Number",
+                        "required": true,
+                        "example": "00905385497592"
+                    },
+                    {
+                        "name": "message",
+                        "in": "query",
+                        "description": "Message to sent to user",
+                        "required": true,
+                        "example": "Hello, Thank you"
+                    },
+                    {
+                        "name": "sender_id",
+                        "in": "query",
+                        "description": "Sender User Id",
+                        "required": true,
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "data added successfully"
+                    }
+                }
+            }
+        },
+        "/api/messages/{message}": {
+            "get": {
+                "tags": [
+                    "Messages"
+                ],
+                "summary": "Show One Message",
+                "operationId": "ea436d0f505d6db4c671b69816371366",
+                "parameters": [
+                    {
+                        "name": "message",
+                        "in": "path",
+                        "description": "Message Id",
+                        "required": true,
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The data"
+                    }
+                }
+            }
+        },
+        "/api/fliterMessagesByDate/{date}": {
+            "get": {
+                "tags": [
+                    "Messages"
+                ],
+                "summary": "Filter Messages By Date",
+                "operationId": "150d248577a282c2b186c730387c1ecc",
+                "parameters": [
+                    {
+                        "name": "date",
+                        "in": "path",
+                        "description": "Message Send Date",
+                        "required": true,
+                        "example": "2024-01-11"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The data"
+                    }
+                }
+            }
+        }
+    }
+}
